@@ -1,0 +1,87 @@
+﻿@model PagedList.IPagedList<BookStore.Models.Zamowienie>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+}
+<hr class="divider">
+<div class="well">
+<h2>Zamówienia</h2>
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table table-condensed">
+    <tr>
+        <th>
+            @Html.ActionLink("Imię", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            Nazwisko
+        </th>
+        <th>
+            @Html.ActionLink("Suma zamówienia", "Index", new { sortOrder = ViewBag.PriceSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        @*<th>
+            Adres
+        </th>
+        <th>
+            Miasto
+        </th>
+        <th>
+            Kod pocztowy
+        </th>*@
+        <th>
+            Telefon
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Nr. Zamówienia
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Suma)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Adres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Miasto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KodPocztowy)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.NumerTel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZamowienieId)
+            </td>
+            <td>
+                @Html.ActionLink("Zmień", "Edit", new { id = item.ZamowienieId }) |
+                @Html.ActionLink("Szczegóły", "Details", new { id = item.ZamowienieId }) |
+                @Html.ActionLink("Usuń", "Delete", new { id = item.ZamowienieId })
+            </td>
+        </tr>
+    }
+</table>
+<br />
+Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index",
+new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>

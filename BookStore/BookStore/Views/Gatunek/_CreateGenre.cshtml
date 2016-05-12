@@ -1,0 +1,16 @@
+﻿@model BookStore.Models.Gatunek
+
+@using (Html.BeginForm("Create", "Gatunek", FormMethod.Post, new { id = "createGenreForm" }))
+
+{
+    @Html.ValidationSummary(true)
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Nazwa)
+        <br />
+        @Html.ValidationMessageFor(model => model.Nazwa)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Nazwa)
+    </div>
+}

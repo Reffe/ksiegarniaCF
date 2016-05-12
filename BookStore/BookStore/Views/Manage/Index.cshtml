@@ -1,0 +1,28 @@
+﻿@model BookStore.Models.IndexViewModel
+@{
+    ViewBag.Title = "Manage";
+}
+
+<hr class="divider">
+<div class="well">
+    <p class="text-success">@ViewBag.StatusMessage</p>
+    <div>
+        <h4>Zmiana ustawień konta</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>Hasło:</dt>
+            <dd>
+                [
+                @if (Model.HasPassword)
+            {
+                    @Html.ActionLink("Zmień hasło", "ChangePassword")
+                }
+                else
+                {
+                    @Html.ActionLink("Create", "SetPassword")
+                }
+                ]
+            </dd>
+        </dl>
+    </div>
+</div>

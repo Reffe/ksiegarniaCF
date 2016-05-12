@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BookStore.Models.Gatunek>
+
+
+@{
+    ViewBag.Title = "Store";
+}
+
+
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            <p class="lead">Gatunki</p>
+    <div class="list-group">
+         @foreach (var gatunek in Model)
+          {
+                 <p class="list-group-item">@Html.ActionLink(gatunek.Nazwa, "Browse", new { gatunek = gatunek.Nazwa })</p>
+                
+         }
+    </div>
+
+        </div>    
+    <div class="col-md-9 col-sm-9 col-xs-12">
+        <div class="well">   
+        </div>
+    </div>
+</div>
+</div>
+		
+
+
+
+@*<h3>Szykane gatunki</h3>
+<p>
+    Wybierz z @Model.Count() gatunkow:
+</p>
+<ul>
+    @foreach (var gatunek in Model)
+    {
+        <li>@Html.ActionLink(gatunek.Nazwa, "Browse", new { gatunek = gatunek.Nazwa })</li>
+    }
+</ul>*@
+

@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/jquery-2.2.3.js"></script>
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/animated.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/shop-item.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body background="~/Content/Images/tlo.jpg">
+    
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Księgarnia", "../Home/", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Panel Admina<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Zamówienia", "Index", "Orders")</li>
+                                <li>@Html.ActionLink("Menadżer produktów", "Index", "StoreManager")</li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Użytkownicy</li>
+                                <li>@Html.ActionLink("Grupy", "Index", "RolesAdmin")</li>
+                                <li>@Html.ActionLink("Zarządzanie użytkownikami", "Index", "UsersAdmin")</li>
+                            </ul>
+                        </li>
+                    }
+
+                    <li>@{Html.RenderAction("PodsumowanieKoszyka", "ShoppingCart"); }</li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gatunki<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Store/Browse?Gatunek=Dramat" >Dramat</a></li>
+                            <li><a href="/Store/Browse?Gatunek=Komedia" >Komedia</a></li>
+                            <li><a href="/Store/Browse?Gatunek=Fantasy">Fantasy</a></li>
+                            <li><a href="/Store/Browse?Gatunek=Biografia">Biografia</a></li>
+                            <li><a href="/Store/Browse?Gatunek=Historyczne">Historyczne</a></li>
+                            <li><a href="/Store/Browse?Gatunek=Polityka">Polityka</a></li>
+                            <li><a href="/Store/Browse?Gatunek=Dla dzieci">Dla dzieci</a></li>
+                            <li><a href="/Store/Browse?Gatunek=Podroze">Podróże</a></li>
+                            <li><a href="/Store/Browse?Gatunek=Poezja">Poezja</a></li>
+                            <li><a href="/Store/Browse?Gatunek=Nauki scisle">Nauki ścisłe</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+
+            </div>
+
+
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+        <hr />
+    </div>
+    <section>
+        <div class="footer">
+            <div class="container animated fadeInUpNow notransition">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h1 class="footerbrand">Księgarnia</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                        <p>
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+
+                    </div>
+                    <div class="col-md-3">
+                        <h1 class="title"><span class="colortext">Z</span>najdź <span class="font100">Nas</span></h1>
+                        <div class="footermap">
+                            <p>
+                                <strong>Adres: </strong> Warszawa 11-232, Kolejowa 22a
+                            </p>
+                            <p>
+                                <strong>Telefon: </strong> 92 123 233 222
+                            </p>
+                            <p>
+                                <strong>Fax: </strong> + 6 (245) 541 258
+                            </p>
+                            <p>
+                                <strong>Email: </strong> ksiegarnia@ksiegarnia.com
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p class="pull-left">
+                            &copy; Copyright 2016 ksiegarnia.com
+                        </p>
+                    </div>
+                    <div class="col-md-8">
+                        <ul class="footermenu pull-right">
+                            <li><a href="#">Księgarnia</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

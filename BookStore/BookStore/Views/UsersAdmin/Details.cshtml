@@ -1,0 +1,53 @@
+﻿@model BookStore.Models.ApplicationUser
+@{
+    ViewBag.Title = "Details";
+}
+<hr class="divider">
+
+<div class="well">
+    <h2>Dane o użytkowniku</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @*@Html.DisplayNameFor(model => model.UserName)*@
+                Nazwa użytkownika
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+        </dl>
+    </div>
+    @*<h4>Grupy</h4>
+    <table class="table table-striped">
+        @foreach (var item in Model.Roles)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleId)
+                </td>
+            </tr>
+        }
+    </table>*@
+    @*<h4>Logowania</h4>
+    <table class="table table-striped">
+        @foreach (var item in Model.Logins)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoginProvider)
+                </td>
+            </tr>
+        }
+    </table>*@
+    <p>
+        @Html.ActionLink("Zmień", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Wróć", "Index")
+    </p>
+    </div>

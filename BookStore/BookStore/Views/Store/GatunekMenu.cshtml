@@ -1,0 +1,28 @@
+﻿@model IEnumerable<BookStore.Models.Gatunek>
+
+
+
+
+    <div class="container">
+        
+        <div class="btn-group btn-group-justified">
+            <a href="/Home/"class="btn btn-primary">Home</a>
+            <a href="/Store/Browse?Gatunek=Dramat" class="btn btn-primary">Dramat</a>
+            <a href="/Store/Browse?Gatunek=Komedia" class="btn btn-primary">Komedia</a>
+            <a href="/Store/Browse?Gatunek=Fantasy" class="btn btn-primary">Fantasy</a>
+            <a href="/Store/Browse?Gatunek=Biografia" class="btn btn-primary">Biografia</a>
+            <a href="/Store/Browse?Gatunek=Historyczne" class="btn btn-primary">Historyczne</a>
+            <a href="/Store/Browse?Gatunek=Sci" class="btn btn-primary">Sci</a>
+        </div>
+    </div>
+
+
+
+@*<p class="lead">Gatunki</p>
+<div class="list-group">
+    @foreach (var gatunek in Model)
+    {
+        <p class="list-group-item">@Html.ActionLink(gatunek.Nazwa, "Browse", new { gatunek = gatunek.Nazwa })</p>
+                        <a href="@Html.ActionLink(gatunek.Nazwa, "Browse", new { gatunek = gatunek.Nazwa })" class="list-group-item"></a>
+    }
+</div>*@

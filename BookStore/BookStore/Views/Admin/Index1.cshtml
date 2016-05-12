@@ -1,0 +1,25 @@
+﻿@model BookStore.Models.GrupedUserModel
+@{
+    ViewBag.Title = "Index1";
+}
+<div>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                User
+            </th>
+        </tr>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <th>
+                    @user.Email
+                    
+                </th>
+            </tr>
+                 
+            
+        }
+    </table>
+</div>

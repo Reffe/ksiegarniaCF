@@ -1,0 +1,62 @@
+﻿@model BookStore.Models.Gatunek
+
+@{
+    ViewBag.Title = "Browse";
+}
+<hr class="divider">
+<div class="well">
+    <h2>
+        @Model.Nazwa
+    </h2>
+
+    <hr class="divider">
+    <div>
+    <div class="row">
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <div class="caption">
+
+
+                @foreach (var ksiazka in Model.Ksiazki)
+            {
+                    <div class="col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <a href="@Url.Action("Details",
+                    new {id = ksiazka.KsiazkaId})">
+                                <img alt="@ksiazka.Tytul" src="@ksiazka.KsiazkaLogo" />
+                            </a>
+                            <div class="caption">
+                                <h>
+                                    <a href="@Url.Action("Details", new { id = ksiazka.KsiazkaId })" title="@ksiazka.Tytul">
+                                        <span>@ksiazka.Tytul</span>
+                                    </a>
+                                </h>
+                                <p>
+                                    <a href="@Url.Action("Details",
+                    new {id = ksiazka.KsiazkaId})" class="btn btn-primary" role="button">Szczegóły</a><span>@ksiazka.Cena zł</span>
+                </p>
+            </div>
+        </div>
+    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+    @*<h3>
+        <em>@Model.Nazwa</em> Ksiazki
+    </h3>
+
+        
+        @foreach (var ksiazka in Model.Ksiazki)
+        {
+            <li>
+                <a href="@Url.Action("Details",
+                        new {id = ksiazka.KsiazkaId})">
+                    <img alt="@ksiazka.Tytul"
+                         src="@ksiazka.KsiazkaLogo"/>
+                    <span>@ksiazka.Tytul</span>
+                </a>
+            </li>
+        }*@

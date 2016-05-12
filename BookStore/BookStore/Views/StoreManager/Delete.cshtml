@@ -1,0 +1,25 @@
+﻿@model BookStore.Models.Ksiazka
+
+@{
+    ViewBag.Title = "Delete";
+}
+<hr class="divider">
+
+<div class="well">
+    <h2>Usuwanie książki</h2>
+
+    <p>
+        Jesteś pewny, że chcesz usunąć tą książkę z bazy?
+    </p>
+
+    @using (Html.BeginForm(0))
+    {
+        <p>
+            <input type="submit" value="Usuń" class="btn btn-warning" />
+
+        </p>
+        <p>
+            @Html.ActionLink("Wróć", "Index")
+        </p>
+    }
+    </div>

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+@{
+    ViewBag.Title = "Index";
+}
+<hr class="divider">
+
+<div class="well">
+    <h2>Menadżer grup</h2>
+    @Html.ActionLink("Stwórz nową grupę", "Create", "RolesAdmin")
+    <hr />
+    <div>
+        @foreach (var role in Model)
+        {
+            <p>
+                <strong>@role.Name |</strong>
+                <span onclick="return confirm('Usunąć grupę?')"><a href="~/Views/RolesAdmin/Delete?RoleName=@role.Name" class="delLink" style="color:red;">Usuń</a></span>|
+                @Html.ActionLink("Zmień", "Edit", "AdminRoles", new { roleName = @role.Name })
+            </p>
+        }
+    </div>
+    </div>

@@ -1,0 +1,56 @@
+﻿@model BookStore.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Create";
+}
+<hr class="divider">
+
+<div class="well">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+
+        <fieldset class="form-horizontal">
+            <legend>Stwórz nowego użytkownika</legend>
+            <div class="control-group">
+                @Html.LabelFor(m => m.UserName, "Nazwa użytkownika", new { @class = "control-label" })
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.UserName)
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(m => m.Password, "Hasło", new { @class = "control-label" })
+                <div class="controls">
+                    @Html.PasswordFor(m => m.Password)
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(m => m.ConfirmPassword, "Powtórz hasło", new { @class = "control-label" })
+                <div class="controls">
+                    @Html.PasswordFor(m => m.ConfirmPassword)
+                </div>
+            </div>
+            @*<div class="control-group">
+                @Html.LabelFor(m => m.LastName, "Nazwisko", new { @class = "control-label" })
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.LastName)
+                </div>
+            </div>*@
+            <div class="control-group">
+                @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.Email)
+                </div>
+            </div>
+            <h4>Wybierz grupę</h4>
+            <hr />
+            @Html.DropDownList("RoleId", "Brak grupy")
+            <div class="form-actions no-color">
+                <input type="submit" value="Zapisz" class="btn" />
+            </div>
+        </fieldset>
+    }
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

@@ -1,0 +1,43 @@
+﻿@model BookStore.Models.ApplicationUser
+@{
+    ViewBag.Title = "Edytuj";
+}
+<hr class="divider">
+
+<div class="well">
+    <hgroup class="title">
+        <h1></h1>
+    </hgroup>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        @*@Html.HiddenFor(model => model.Id)*@
+
+
+        <fieldset class="form-horizontal">
+            <legend>Edycja użytkownika</legend>
+            <div class="control-group">
+                @Html.LabelFor(m => m.UserName, "Nazwa użytkownika", new { @class = "control-label" })
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.UserName)
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.Email)
+                </div>
+            </div>
+            <h4>Zmień grupę dla użytkownika</h4>
+            <hr />
+            @Html.DropDownList("RoleId", "Brak grupy")
+            <div class="form-actions no-color">
+                <input type="submit" value="Zmień" class="btn" />
+            </div>
+        </fieldset>
+    }
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+    </div>

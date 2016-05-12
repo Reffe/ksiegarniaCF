@@ -1,0 +1,28 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+
+@{
+    ViewBag.Title = "Edit";
+}
+<hr class="divider">
+
+<div class="well">
+    <h2>Edycja grupy</h2>
+
+    @Html.ActionLink("Stworz nową grupę", "Create", "RolesAdmin")
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+        <div>
+            Nazwa grupy
+        </div>
+        <p>
+            @Html.TextBoxFor(model => model.Name)
+        </p>
+        <input type="submit" value="Zapisz" />
+    }
+    </div>
+
+    

@@ -1,0 +1,114 @@
+﻿@model List<BookStore.Models.Ksiazka>
+@{
+    ViewBag.Title = "Ksiegarnia";
+}
+
+<style>
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+        width: 100%;
+        margin: auto;
+    }
+</style>
+@*<hr class="divider">*@
+<div>
+
+</div>
+
+    <div class="container">
+        <br>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="#" alt="1" width="460" height="345">
+                </div>
+
+                <div class="item">
+                    <img src="#" alt="2" width="460" height="345">
+                </div>
+
+                <div class="item">
+                    <img src="#" alt="3" width="460" height="345">
+                </div>
+
+                <div class="item">
+                    <img src="#" alt="4" width="460" height="345">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="clearfix" style="margin-bottom:20px;"></div>
+
+    <div class="container">
+        <div class="well">
+
+           @*<div id="Promocja">
+
+            </div>*@
+            <div class="row">
+                <div class="caption">
+                    <h1>Bestsellery</h1>
+                    @foreach (var ksiazka in Model)
+                    {
+                        <div class="col-sm-6 col-md-3">
+                            <div class="thumbnail">
+                                <a href="@Url.Action("Details","Store",
+                    new {id = ksiazka.KsiazkaId})">
+                                    <img alt="@ksiazka.Tytul" src="@ksiazka.KsiazkaLogo" />
+                                </a>
+                                <div class="caption">
+                                    <h>
+                                        <a href="@Url.Action("Details","Store", new { id = ksiazka.KsiazkaId })" title="@ksiazka.Tytul">
+                                            <span>@ksiazka.Tytul</span>
+                                        </a>
+                                    </h>
+                                    <p>
+                                        <a href="@Url.Action("Details","Store",
+                    new {id = ksiazka.KsiazkaId})" class="btn btn-primary" role="button">Szczegóły</a><span> @ksiazka.Cena zł</span>
+                </p>
+            </div>
+        </div>
+    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    @*////////////////////////////////////////*@
+    @*<div id="Promocja">
+
+        </div>
+        <h3>   <em>Najznowsze</em> ksiazki </h3>
+        <ul id="navlist">
+
+            @foreach (var ksiazka in Model)
+            {
+                <li>
+                    <a href="@Url.Action("Details","Store",
+                        new {id = ksiazka.KsiazkaId})">
+                        <img alt="@ksiazka.Tytul" src="@ksiazka.KsiazkaLogo" />
+                        <span>@ksiazka.Tytul</span>
+                    </a>
+                </li>
+            }
+        </ul>*@
+

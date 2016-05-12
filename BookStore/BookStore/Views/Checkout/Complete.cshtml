@@ -1,0 +1,17 @@
+﻿@Model int
+@{
+    ViewBag.Title = "Complete";
+}
+<div class="well">
+    <h2>Zakończenie transakcji</h2>
+    <p>Dziękujemy za twoje zamówienie! Numer zamówienia:<strong> @Model</strong></p>
+    <p>Dane do przerzelewu: </p>
+    <p>Imie: Andrzej</p>
+    <p>Nazwisko: Kowalski</p>
+    <p>Adres: Warszawa 11-232, Kolejowa 22a</p>
+    <p>Numer konta: 1234 5678 8939 2912 9232  Pko BP</p>
+    <p> W tytule prosze podać numer zamówienia</p>
+    <p>
+        Kup wiecej książek w naszym sklepie @Html.ActionLink("Sklep", "Index", "Home")
+    </p>
+    </div>

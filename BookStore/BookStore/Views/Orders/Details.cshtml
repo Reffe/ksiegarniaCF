@@ -1,0 +1,87 @@
+﻿@model BookStore.Models.Zamowienie
+@{
+    ViewBag.Title = "Details";
+}
+<hr class="divider">
+<div class="well">
+    <h4>Szczegóły zamówienia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Imię
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Imie)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwisko)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nazwisko)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Miasto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Miasto)
+        </dd>
+        <dt>
+            Kod pocztowy
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.KodPocztowy)
+        </dd>
+
+        <dt>
+            Numer telefonu
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumerTel)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Suma)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Suma)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+</div>
+<div class="well">
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            Kupione książki
+        </th>
+        <th>
+            Ilość
+        </th>
+    </tr>
+    @foreach (var item in Model.SzczegolyZamowienia)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ksiazka.Tytul)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ilosc)
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Zmień", "Edit", new { id = Model.ZamowienieId }) |
+    @Html.ActionLink("Wróć", "Index")
+</p>
+ </div>

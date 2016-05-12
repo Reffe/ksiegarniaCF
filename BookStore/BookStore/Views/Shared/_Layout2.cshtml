@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/Css")
+    <link href="@Url.Content("~/Content/site.css")"
+          rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")"
+            type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.js")"></script>
+    @*<script src="@Url.Content("~/Scripts/jquery.validate.js")" </script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" </script>*@
+    <link href="@Url.Content( "~/Content/themes/base/jquery.ui.all.css" )" rel="stylesheet" type="text/css" />
+    @*<link href="@Url.Content( "~/Scripts/ui/jquery.ui.combobox.css" )" rel="stylesheet" type="text/css" />*@
+
+    <script src="~/Scripts/jquery-ui-1.8.16.min.js"></script>
+    <script>
+        $(function () {
+            $("#dialog-model").dialog({
+                autoOpen: false,
+                width: 400,
+                height: 280,
+                show: {
+                    effect: "shake",
+                    duration: 100
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+            $("model-opener").click(function () {
+                $("dialog-model").dialog("open");
+            }
+                );
+        });
+    </script>
+</head>
+<body>
+    <div>
+    <ul id="navlist">
+            <li class="first">
+                <a href="@Url.Content("~")"
+                   id="current">
+                    Home
+                </a>
+                   
+            </li>
+            <li>
+                <a href="@Url.Content("~/Store/")">Store</a>
+            </li>
+            <li>@{Html.RenderAction("PodsumowanieKoszyka", "ShoppingCart"); }</li>
+            <li><a href="@Url.Content("~/StoreManager/")">
+                Admin</a></li>
+            @Html.Partial("_LoginPartial")
+        </ul>
+        
+    </div>
+    @{ Html.RenderAction("GatunekMenu", "Store");}
+    <div id="main">
+        @RenderBody()
+    </div>
+    <div id="footer">
+        Zbudowane prz CF
+    </div>
+   @* @RenderBody()*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

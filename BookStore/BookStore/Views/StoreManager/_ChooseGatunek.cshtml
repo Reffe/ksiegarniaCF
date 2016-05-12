@@ -1,0 +1,18 @@
+﻿@model BookStore.Models.Ksiazka
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.GatunekId, "Gatunek")
+
+</div>
+@Html.DropDownList("GatunekId", ViewBag.Gatunki as SelectList, String.Empty)
+
+<a class="button" href="@Url.Content("~/Gatunek/Create")"
+   id="gatunekAddLink">Dodaj gatunek</a>
+
+
+@Html.ValidationMessageFor(model =>model.GatunekId)
+<div id="gatunekDialog" class="hidden">
+
+</div>
+<script src="@Url.Content("~/Scripts/ui/jquery.ui.combobox.js")"></script>
+<script src="@Url.Content("~/Scripts/chooseGatunek.js")"></script>

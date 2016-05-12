@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BookStore.Models.Ksiazka>
+
+@{
+    ViewBag.Title = "Index";
+}
+<hr class="divider">
+
+<div class="well">
+    <h2>Ksiażki w bazie</h2>
+
+    <p>
+        @Html.ActionLink("Dodaj ksiażkę", "Create")
+    </p>
+    <table class="table table-condensed">
+        <tr>
+            <th>
+                Autor
+            </th>
+            <th>
+                Gatunek
+            </th>
+            <th>
+                Tytuł
+            </th>
+            <th>
+                Cena
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Autor.Imie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gatunek.Nazwa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tytul)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cena)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Zmień", "Edit", new { id = item.KsiazkaId }) |
+                    @Html.ActionLink("Szczegóły", "Details", new { id = item.KsiazkaId }) |
+                    @Html.ActionLink("Usuń", "Delete", new { id = item.KsiazkaId })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

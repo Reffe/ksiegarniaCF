@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+<hr class="divider">
+
+<div class="well">
+    <h2>Utwórz nową grupę</h2>
+
+    @Html.ActionLink("Wróć do listy grup", "Index", "RolesAdmin")
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div>
+            Nazwa grupy
+        </div>
+        <p>
+            @Html.TextBox("RoleName")
+        </p>
+        <input type="submit" value="Zapisz" />
+    }
+    </div>
+
